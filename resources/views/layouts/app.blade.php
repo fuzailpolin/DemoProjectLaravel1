@@ -39,6 +39,15 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item">
+                                    <a class="nav-link" href="/index">Index</a>
+                        </li>
+                        <li class="nav-item">
+                                    <a class="nav-link" href="/services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                                    <a class="nav-link" href="/about">About</a>
+                        </li>
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
