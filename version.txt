@@ -1,0 +1,2 @@
+ver 1.01: login/registration
+ver 1.02: Posts model migration
