@@ -31,4 +31,4 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/post', [PostsController::class, 'index'])->name('post.index');
+Route::resource('post', PostsController::class);

@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Posts;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class PostsController extends Controller
 {
+    public $timestamps = true;
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +38,24 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $temp = new Posts();
+        $temp->title = $request->titleInput;
+        $temp->body = $request->bodyInput;
+
+        if($temp->save()){
+            return "Input taken";
+        }
+        else{
+            return "Input not taken";
+        }
+        
+        /*DB::table('posts')->insert([ 
+            'title' => $request->titleInput,
+            'body' => $request->bodyInput
+
+        ]);*/
+        
     }
 
     /**

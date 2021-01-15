@@ -12,8 +12,9 @@
                 @csrf
                 Title: <input id="titleInput" type="text" name="titleInput">
                 Body: <input id="bodyInput" type="text" name="bodyInput">
+                <button class="btn btn-primary pull-center" name="btnButton" value="Submit">Submit</button>
             </form>
-                <input type="button" name="submitBtn" value="Submit">
+                
         </div>  
     </div>
 
