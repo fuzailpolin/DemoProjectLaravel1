@@ -66,7 +66,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $posts = DB::table('posts')->get();
+        return view('Pages.postView')->with('posts', $posts);
     }
 
     /**
