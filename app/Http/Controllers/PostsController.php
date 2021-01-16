@@ -27,7 +27,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        
+        $posts = DB::table('posts')->get();
+        return view('Pages.postView')->with('posts', $posts);
     }
 
     /**
@@ -66,8 +67,10 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $posts = DB::table('posts')->get();
-        return view('Pages.postView')->with('posts', $posts);
+        $posts = DB::table('posts')
+            ->where('id', $id)
+            ->get();
+        return view('Pages.vlogPost')->with('posts', $posts);
     }
 
     /**
@@ -78,7 +81,10 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $posts = DB::table('posts')
+                ->where('id', $id)
+                ->get();
+        return view('Pages.editVlog')->with('posts', $posts);
     }
 
     /**
@@ -90,7 +96,12 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $title = $request->txtTitleEdit;
+        $body = $request->txtBodyEdit;
+        DB::table('posts')->where('id', $id)
+                        ->update(['body' => $body, 'title' => $title, 'updated_at'=> date('Y-m-d g:i:s')]);
+        //return "Doing Update $title and $body";
+        return back();
     }
 
     /**

@@ -31,4 +31,5 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::post('/post/{id}/edit', [PostsController::class, 'update']);
 Route::resource('post', PostsController::class);
